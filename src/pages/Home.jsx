@@ -1,9 +1,20 @@
 import React from 'react'
+import NavBar from '../components/NavBar'
+import Footer from '../components/Footer'
+import { Link } from 'react-router-dom'
 
 export default function Home() {
   return (
-    <div>
-      <h1>React Router</h1>
-    </div>
+    <>
+      <NavBar />
+      <div className='Home'>
+        <div className='Home--content'>
+          <h3>You got the travel plans, we got the travel vans.</h3>
+          <p>Add adventure to your life by joining the #vanlife movement. Rent the perfect van to make your perfect road trip.</p>
+          <button className='btn'>Find your van</button>
+        </div>
+      </div>
+      <Footer />
+    </>
   )
 }

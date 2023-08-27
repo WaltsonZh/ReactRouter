@@ -1,0 +1,43 @@
+.NavBar {
+  display: flex;
+  justify-content: space-between;
+  padding: 2em 1.5em;
+  background: var(--theme-color);
+}
+
+.title {
+  font-size: 1.6em;
+  font-weight: 900;
+  text-decoration: none;
+  color: black;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  width: 7em;
+  justify-content: space-between;
+}
+
+.links > a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  position: relative;
+}
+
+.links > a::after {
+  position: absolute;
+  content: '';
+  bottom: -0.4em;
+  height: 0.2em;
+  width: 100%;
+  left: 0;
+  background: black;
+  transition: 0.3s ease-in-out;
+  transform: scaleX(0);
+}
+
+.links > a:hover::after {
+  transform: scaleX(1);
+}
