@@ -4,7 +4,10 @@ import './About.css'
 export default function About() {
   return (
     <div className='About'>
-      <img className='About--header' src='/images/about.png' />
+      <img
+        className='About--header'
+        src='/images/about.png'
+      />
       <div className='About--content'>
         <h3>Don’t squeeze in a sedan when you could relax in a van.</h3>
         <p>
