@@ -22,7 +22,7 @@ export default function Dashboard() {
           <h4>{van.name}</h4>
           <p>${van.price}/day</p>
         </div>
-        <Link className='Dashboard--link' to={`/host/vans/${van.id}`}>Edit</Link>
+        <Link className='Dashboard--link' to={`vans/${van.id}`}>Edit</Link>
       </div>
     )
   })
@@ -35,7 +35,7 @@ export default function Dashboard() {
           Income last <b>30 days</b>
         </p>
         <h1>$2,260</h1>
-        <Link className='Dashboard--link' to='/host/income'>
+        <Link className='Dashboard--link' to='income'>
           Details
         </Link>
       </div>
@@ -47,13 +47,13 @@ export default function Dashboard() {
             <b>5.0</b>/5
           </p>
         </div>
-        <Link className='Dashboard--link' to='/host/reviews'>
+        <Link className='Dashboard--link' to='reviews'>
           Details
         </Link>
       </div>
       <div className='Dashboard--vans'>
         <h4>Your listed vans</h4>
-        <Link className='Dashboard--link' to='/host/Vans'>
+        <Link className='Dashboard--link' to='Vans'>
           View all
         </Link>
         <div className='Dashboard--vans--container'>{vanList}</div>
