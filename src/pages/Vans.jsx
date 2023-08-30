@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import './Vans.css'
 
 export default function Vans() {
   const [vans, setVans] = useState([])
@@ -19,16 +18,16 @@ export default function Vans() {
     return (
       <Link
         key={van.id}
-        className='van'
+        className='Van'
         to={`/vans/${van.id}`}
       >
         <img
-          className='van--img'
+          className='Van--img'
           src={van.imageUrl}
         />
-        <div className='van--info'>
+        <div className='Van--info'>
           <h4>{van.name}</h4>
-          <div className='van--price'>
+          <div className='Van--price'>
             <b>${van.price}</b>
             <p>/day</p>
           </div>
@@ -41,13 +40,13 @@ export default function Vans() {
   return (
     <div className='Vans'>
       <h2>Explore our van options</h2>
-      <div className='filter'>
+      <div className='Vans--filter'>
         <div>Simple</div>
         <div>Luxury</div>
         <div>Rugged</div>
         <a href='#'>Clear filters</a>
       </div>
-      <div className='van--container'>{vanElements}</div>
+      <div className='Vans--container'>{vanElements}</div>
     </div>
   )
 }

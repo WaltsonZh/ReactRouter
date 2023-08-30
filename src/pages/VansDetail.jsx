@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import './VansDetail.css'
 import { Link, useParams } from 'react-router-dom'
 
 export default function VansDetail() {
@@ -21,19 +20,19 @@ export default function VansDetail() {
       {van ? (
         <>
           <Link to='/vans'>&larr; Back to all vans</Link>
-          <div className='content'>
+          <div className='Detail--content'>
             <img
-              className='image'
+              className='Detail--image'
               src={van.imageUrl}
             />
             <div className={`type ${van.type}`}>{van.type}</div>
-            <h3 className='title'>{van.name}</h3>
-            <p className='price'>
+            <h3 className='Detail--title'>{van.name}</h3>
+            <p className='Detail--price'>
               ${van.price}
               <span>/day</span>
             </p>
-            <p className='description'>{van.description}</p>
-            <button className='btn'>Rent this van</button>
+            <p className='Detail--description'>{van.description}</p>
+            <button className='Detail--btn'>Rent this van</button>
           </div>
         </>
       ) : (
