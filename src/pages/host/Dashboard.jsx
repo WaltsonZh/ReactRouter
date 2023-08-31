@@ -6,7 +6,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     const fetchVans = async () => {
-      fetch('/api/vans')
+      fetch('/api/host/vans')
         .then((res) => res.json())
         .then((data) => setVans(data.vans))
     }
@@ -16,7 +16,7 @@ export default function Dashboard() {
 
   const vanList = vans.map((van) => {
     return (
-      <div className='Dashboard--van'>
+      <div key={van.id} className='Dashboard--van'>
         <img src={van.imageUrl} />
         <div>
           <h4>{van.name}</h4>
@@ -56,7 +56,7 @@ export default function Dashboard() {
         <Link className='Dashboard--link' to='Vans'>
           View all
         </Link>
-        <div className='Dashboard--vans--container'>{vanList}</div>
+        <div className='Dashboard--vans--container'>{vans.length > 0 ? vanList: <h2>Loding...</h2>}</div>
       </div>
     </>
   )

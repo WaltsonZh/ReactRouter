@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 export default function HostNavBar() {
   return (
     <nav className='NavBar--links HostNavBar'>
-      <NavLink to='/host' end className={({ isActive }) => (isActive ? 'current--page' : '')}>
+      <NavLink to='.' end className={({ isActive }) => (isActive ? 'current--page' : '')}>
         Dashboard
       </NavLink>
       <NavLink to='income' className={({ isActive }) => (isActive ? 'current--page' : '')}>

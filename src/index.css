@@ -27,7 +27,6 @@ body {
   justify-content: space-between;
   padding: 2em 1.5em;
   background: var(--theme-color);
-  box-shadow: 2px 0px 4px 2px rgba(0, 0, 0, 0.2);
 }
 
 .NavBar--title {
@@ -364,7 +363,6 @@ a.current--page::after {
 
 .HostNavBar {
   padding: 2em;
-  box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.2);
 }
 
 .Dashboard--income {
@@ -476,4 +474,85 @@ a.current--page::after {
 .Dashboard--van > div {
   display: grid;
   gap: 0.2em;
+}
+
+.HostVans {
+  padding: 2em;
+  display: grid;
+  gap: 2em;
+}
+
+.HostVans > h2 {
+  font-size: 2em;
+}
+
+.HostVans--van {
+  text-decoration: none;
+  color: black;
+  transition: all .3s;
+}
+
+.HostVans--van:hover {
+  box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.2);
+  scale: 1.02;
+}
+
+.VansLayout {
+  padding: 2em;
+  display: grid;
+  gap: 2em;
+}
+
+.VansLayout--content {
+  background: white;
+  padding: 1.5em;
+  border-radius: 6px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5em;
+}
+
+.VansLayout--content img {
+  width: 10em;
+  border-radius: 5px;
+}
+
+.VansLayout--content .NavBar--links {
+  grid-column: 1 / -1;
+  margin: 0.5em 0;
+}
+
+.VansLayout--vanData {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.VansLayout--vanData h2 {
+  margin: 0.5em 0 0.2em;
+}
+
+.VansLayout--vanData p {
+  font-size: 1.2em;
+}
+
+.VansLayout--vanData p span {
+  font-size: 0.85em;
+}
+
+.Details {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.Details p {
+  font-size: 0.9em;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.Details span {
+  font-weight: 500;
 }

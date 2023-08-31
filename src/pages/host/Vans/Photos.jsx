@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Van() {
+export default function Photos() {
   return (
     <div>
-      <h1>Van</h1>
+      <h1>Photos</h1>
     </div>
   )
 }
