@@ -3,7 +3,13 @@ import { Link, Outlet, useParams, NavLink, useOutletContext } from 'react-router
 
 export default function VansLayout() {
   const { id } = useParams()
-  const van = useOutletContext()[id - 1]
+  const vans = useOutletContext()
+  let van = []
+  vans.forEach((data) => {
+    if (data.id === id) {
+      van = data
+    }
+  })
 
   return (
     <div className='VansLayout'>

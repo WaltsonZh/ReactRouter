@@ -476,6 +476,121 @@ a.current--page::after {
   gap: 0.2em;
 }
 
+.Income {
+  margin: 2em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2em;
+}
+
+.Income p {
+  font-weight: 500;
+  color: #4d4d4d;
+}
+.Income span {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.Income--data {
+  display: grid;
+  gap: 2em;
+}
+
+.Income--data > h2 {
+  font-size: 2em;
+}
+
+.Income--data h1 {
+  font-size: 3em;
+  font-weight: 800;
+}
+
+.Income img {
+  width: 100%;
+  max-width: 600px;
+}
+
+.Income--transactions {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1em;
+  height: fit-content;
+}
+
+.Income--transactions--container {
+  grid-column: -1 / 1;
+  display: grid;
+  gap: 1em;
+}
+
+.Income--transactions--container div {
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2em;
+  border-radius: 6px;
+  height: 6em;
+}
+
+.Reviews {
+  padding: 2em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, auto));
+  gap: 2em 5em;
+}
+
+.Reviews p {
+  font-weight: 500;
+}
+
+.Reviews--data {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2em;
+}
+
+.Reviews--data h2 {
+  font-size: 2em;
+}
+
+.Reviews--data > p {
+  height: fit-content;
+  align-self: center;
+  color: #4d4d4d;
+}
+
+.Reviews--data > p span {
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+.Reviews--data > img {
+  grid-column: 1 / -1;
+  max-width: 600px;
+  width: 100%;
+}
+
+.Reviews--comments--container {
+  display: grid;
+  gap: 1.5em;
+}
+
+.Reviews--comments {
+  display: grid;
+  gap: 1em;
+}
+
+.Reviews--comments div {
+  display: flex;
+  gap: 0.2em;
+}
+
+.Reviews--comments span {
+  color: #8c8c8c;
+}
+
 .HostVans {
   padding: 2em;
   display: grid;
