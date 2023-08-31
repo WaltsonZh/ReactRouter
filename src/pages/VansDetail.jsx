@@ -1,19 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useOutletContext, useParams } from 'react-router-dom'
 
 export default function VansDetail() {
-  const params = useParams()
-  const [van, setVan] = useState()
-
-  useEffect(() => {
-    const fetchVanData = async () => {
-      fetch(`/api/vans/${params.id}`)
-        .then((res) => res.json())
-        .then((data) => setVan(data.vans))
-    }
-
-    fetchVanData()
-  }, [])
+  const { id } = useParams()
+  const van = useOutletContext()[id - 1]
 
   return (
     <div className='VansDetail'>
@@ -21,10 +11,7 @@ export default function VansDetail() {
         <>
           <Link to='/vans'>&larr; Back to all vans</Link>
           <div className='Detail--content'>
-            <img
-              className='Detail--image'
-              src={van.imageUrl}
-            />
+            <img className='Detail--image' src={van.imageUrl} />
             <div className={`type ${van.type}`}>{van.type}</div>
             <h3 className='Detail--title'>{van.name}</h3>
             <p className='Detail--price'>

@@ -1,18 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react'
+import { Link, useOutletContext } from 'react-router-dom'
 
 export default function Dashboard() {
-  const [vans, setVans] = useState([])
-
-  useEffect(() => {
-    const fetchVans = async () => {
-      fetch('/api/host/vans')
-        .then((res) => res.json())
-        .then((data) => setVans(data.vans))
-    }
-
-    fetchVans()
-  }, [])
+  const vans = useOutletContext()
 
   const vanList = vans.map((van) => {
     return (

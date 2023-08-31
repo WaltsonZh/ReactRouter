@@ -1,26 +1,18 @@
-import React, { useEffect, useState } from 'react'
-import { Link, Outlet, useParams, NavLink } from 'react-router-dom'
+import React from 'react'
+import { Link, Outlet, useParams, NavLink, useOutletContext } from 'react-router-dom'
 
 export default function VansLayout() {
-  const [van, setVan] = useState(null)
-  const param = useParams()
-
-  useEffect(() => {
-    const fetchVanData = async () => {
-      fetch(`/api/host/vans/${param.id}`)
-        .then((res) => res.json())
-        .then((data) => setVan(data.vans))
-    }
-
-    fetchVanData().catch(error => console.error(error))
-  }, [])
+  const { id } = useParams()
+  const van = useOutletContext()[id - 1]
 
   return (
     <div className='VansLayout'>
-      <Link to='..' relative='path'>&larr; Back to all vans</Link>
+      <Link to='..' relative='path'>
+        &larr; Back to all vans
+      </Link>
       {van ? (
         <div className='VansLayout--content'>
-          <img src={van.imageUrl} />
+          <img className='VansLayout--image' src={van.imageUrl} />
           <div className='VansLayout--vanData'>
             <div className={`type ${van.type}`}>{van.type}</div>
             <h2>{van.name}</h2>
@@ -40,7 +32,7 @@ export default function VansLayout() {
               Photos
             </NavLink>
           </nav>
-          <Outlet />
+          <Outlet context={van} />
         </div>
       ) : (
         <h2>Loding...</h2>

@@ -1,9 +1,12 @@
 import React from 'react'
+import { useOutletContext } from 'react-router-dom'
 
 export default function Photos() {
+  const { imageUrl } = useOutletContext()
+
   return (
-    <div>
-      <h1>Photos</h1>
-    </div>
+    <>
+      <img className='Photos' src={imageUrl} />
+    </>
   )
 }

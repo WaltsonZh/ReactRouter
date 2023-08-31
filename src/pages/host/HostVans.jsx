@@ -1,18 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useOutletContext } from 'react-router-dom'
 
 export default function HostVans() {
-  const [vans, setVans] = useState([])
-
-  useEffect(() => {
-    const fetchVansData = async () => {
-      fetch('/api/host/vans')
-        .then((res) => res.json())
-        .then((data) => setVans(data.vans))
-    }
-
-    fetchVansData().catch((error) => console.error(error))
-  }, [])
+  const vans = useOutletContext()
 
   const vanList = vans.map((van) => {
     return (

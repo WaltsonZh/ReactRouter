@@ -512,14 +512,14 @@ a.current--page::after {
   gap: 1.5em;
 }
 
-.VansLayout--content img {
-  width: 10em;
-  border-radius: 5px;
-}
-
 .VansLayout--content .NavBar--links {
   grid-column: 1 / -1;
   margin: 0.5em 0;
+}
+
+.VansLayout--image {
+  width: 10em;
+  border-radius: 5px;
 }
 
 .VansLayout--vanData {
@@ -555,4 +555,18 @@ a.current--page::after {
 
 .Details span {
   font-weight: 500;
+}
+
+.Pricing {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.Pricing span {
+  font-size: 0.8em;
+}
+
+.Photos {
+  width: 6.4em;
+  border-radius: 5px;
 }
