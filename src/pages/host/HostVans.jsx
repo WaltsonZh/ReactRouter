@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
 import { Link, useOutletContext } from 'react-router-dom'
 
 export default function HostVans() {
-  const vans = useOutletContext()
+  const { data, loading, error } = useOutletContext()
+  const vans = data || []
 
   const vanList = vans.map((van) => {
     return (
@@ -19,7 +19,7 @@ export default function HostVans() {
   return (
     <div className='HostVans'>
       <h2>Your listed vans</h2>
-      <div className='Dashboard--vans--container'>{vans.length > 0 ? vanList : <h2>Loding...</h2>}</div>
+      <div className='Dashboard--vans--container'>{loading ? <h2>Loading...</h2> : error ? <h2>{error}</h2> : vanList}</div>
     </div>
   )
 }

@@ -2,24 +2,32 @@ import React, { useState, useEffect } from 'react'
 import NavBar from './NavBar'
 import Footer from './Footer'
 import { Outlet } from 'react-router-dom'
+import { fetchVans } from '../API'
 
 export default function Layout() {
-  const [vans, setVans] = useState([])
+  const [vans, setVans] = useState()
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
-    const fetchVans = async () => {
-      fetch('/api/vans')
-        .then((res) => res.json())
-        .then((data) => setVans(data.vans))
+    const loadVans = async () => {
+      setLoading(true)
+      try {
+        const data = await fetchVans()
+        setVans(data)
+      } catch (err) {
+        setError(err.message)
+      } finally {
+        setLoading(false)
+      }
     }
-
-    fetchVans()
+    loadVans()
   }, [])
 
   return (
     <>
       <NavBar />
-      <Outlet context={vans} />
+      <Outlet context={{ data: vans, loading, error }} />
       <Footer />
     </>
   )

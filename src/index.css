@@ -225,15 +225,38 @@ a.current--page::after {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  border: none;
+  font-size: 1em;
+  background: transparent;
 }
 
-.Vans--filter > div {
+.Vans--filter .filter {
   background: var(--light-highlight-color);
   border-radius: 5px;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  transition: all 0.2s;
 }
 
-.Vans--filter > a {
-  text-decoration: underline;
+.filter.simple:hover, .simple.selected {
+  background: #e17654;
+  color: white;
+}
+
+.filter.luxury:hover, .luxury.selected {
+  background: #161616;
+  color: white;
+}
+
+.filter.rugged:hover, .rugged.selected {
+  background: #115e59;
+  color: white;
+}
+
+
+
+.Vans--filter {
   color: #4d4d4d;
 }
 
@@ -684,4 +707,31 @@ a.current--page::after {
 .Photos {
   width: 6.4em;
   border-radius: 5px;
+}
+
+.NotFound {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin: auto;
+}
+
+.NotFound a {
+  border: none;
+  background: black;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3em;
+  font-size: 1.1em;
+  font-weight: 700;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.NotFound a:hover {
+  background: #363636;
 }

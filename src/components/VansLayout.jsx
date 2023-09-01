@@ -3,8 +3,9 @@ import { Link, Outlet, useParams, NavLink, useOutletContext } from 'react-router
 
 export default function VansLayout() {
   const { id } = useParams()
-  const vans = useOutletContext()
-  let van = []
+  const { data, loading, error } = useOutletContext()
+  const vans = data || []
+  let van = {}
   vans.forEach((data) => {
     if (data.id === id) {
       van = data
@@ -16,7 +17,11 @@ export default function VansLayout() {
       <Link to='..' relative='path'>
         &larr; Back to all vans
       </Link>
-      {van ? (
+      {loading ? (
+        <h2>Loading...</h2>
+      ) : error ? (
+        <h2>{error}</h2>
+      ) : (
         <div className='VansLayout--content'>
           <img className='VansLayout--image' src={van.imageUrl} />
           <div className='VansLayout--vanData'>
@@ -38,10 +43,8 @@ export default function VansLayout() {
               Photos
             </NavLink>
           </nav>
-          <Outlet context={van} />
+          <Outlet context={{ van, loading }} />
         </div>
-      ) : (
-        <h2>Loding...</h2>
       )}
     </div>
   )

@@ -2,9 +2,11 @@ import React from 'react'
 import { useOutletContext } from 'react-router-dom'
 
 export default function Detail() {
-  const van = useOutletContext()
+  const { van, loading } = useOutletContext()
 
-  return van ? (
+  return loading ? (
+    <h2>Loading...</h2>
+  ) : (
     <div className='Details'>
       <p>
         Name: <span>{van.name}</span>
@@ -19,7 +21,5 @@ export default function Detail() {
         Visibility: <span>public</span>
       </p>
     </div>
-  ) : (
-    <h2>Loding...</h2>
   )
 }

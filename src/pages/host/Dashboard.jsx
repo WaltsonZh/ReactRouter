@@ -2,7 +2,8 @@ import React from 'react'
 import { Link, useOutletContext } from 'react-router-dom'
 
 export default function Dashboard() {
-  const vans = useOutletContext()
+  const { data, loading, error } = useOutletContext()
+  const vans = data || []
 
   const vanList = vans.map((van) => {
     return (
@@ -12,7 +13,9 @@ export default function Dashboard() {
           <h4>{van.name}</h4>
           <p>${van.price}/day</p>
         </div>
-        <Link className='Dashboard--link' to={`vans/${van.id}`}>Edit</Link>
+        <Link className='Dashboard--link' to={`vans/${van.id}`}>
+          Edit
+        </Link>
       </div>
     )
   })
@@ -46,7 +49,7 @@ export default function Dashboard() {
         <Link className='Dashboard--link' to='Vans'>
           View all
         </Link>
-        <div className='Dashboard--vans--container'>{vans.length > 0 ? vanList: <h2>Loding...</h2>}</div>
+        <div className='Dashboard--vans--container'>{loading ? <h2>Loading...</h2> : error ? <h2>{error}</h2> : vanList}</div>
       </div>
     </>
   )
