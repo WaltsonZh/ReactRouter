@@ -11,9 +11,7 @@ export default function Error() {
       <NavBar />
       <h1>Error: {error.message}</h1>
       <br />
-      <p>
-        {error.status} - {error.statusText}
-      </p>
+      <p>{JSON.stringify(error)}</p>
       <Footer />
     </>
   )

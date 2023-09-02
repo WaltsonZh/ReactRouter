@@ -39,7 +39,7 @@ body {
 .NavBar--links {
   display: flex;
   align-items: center;
-  gap: 1em;
+  gap: 2em;
 }
 
 .NavBar--links > a {
@@ -735,4 +735,66 @@ a.current--page::after {
 
 .NotFound a:hover {
   background: #363636;
+}
+
+.Login {
+  display: grid;
+  margin: auto;
+  gap: 2em;
+  width: 500px;
+  place-items: center;
+}
+
+.Login form {
+  display: grid;
+  width: 100%;
+}
+
+.Login input {
+  height: 2.8em;
+  border: 1px solid #D1D5DB;
+  text-indent: 2%;
+  font-size: 1em;
+}
+
+.Login .email {
+  border-radius: 5px 5px 0 0;
+}
+
+.Login .password {
+  border-radius: 0 0 5px 5px;
+}
+
+.Login button {
+  margin: 1.6em 0;
+  height: 3em;
+  font-size: 1em;
+  font-weight: 700;
+  color: white;
+  border: none;
+  background: var(--interact-color);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.Login button:hover {
+  background: var(--interact-active-color);
+}
+
+.Login button:active {
+  background: var(--interact-color);
+}
+
+.Login p {
+  font-weight: 500;
+}
+
+.Login a {
+  font-weight: 700;
+  color: var(--interact-color);
+  text-decoration: none;
+}
+
+.Login a:hover {
+  text-decoration: underline;
 }

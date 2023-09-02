@@ -3,6 +3,8 @@ import { Link, useOutletContext } from 'react-router-dom'
 export default function HostVans() {
   const vans = useOutletContext()
 
+  console.log(vans)
+
   const vanList = vans.map((van) => {
     return (
       <Link key={van.id} className='Dashboard--van HostVans--van' to={van.id}>
