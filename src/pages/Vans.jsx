@@ -2,8 +2,7 @@ import React from 'react'
 import { Link, useOutletContext, useSearchParams } from 'react-router-dom'
 
 export default function Vans() {
-  const { data, loading, error } = useOutletContext()
-  const vans = data || []
+  const vans = useOutletContext()
   const [searchParams, setSearchParams] = useSearchParams()
   const typeFilter = searchParams.get('type')
 
@@ -64,7 +63,7 @@ export default function Vans() {
           </button>
         ) : null}
       </div>
-      <div className='Vans--container'>{loading ? <h1>Loading...</h1> : error ? <h1>{error}</h1> : vanElements}</div>
+      <div className='Vans--container'>{vanElements}</div>
     </div>
   )
 }

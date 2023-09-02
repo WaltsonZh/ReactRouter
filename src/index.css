@@ -92,7 +92,7 @@ a.current--page::after {
 }
 
 .Home {
-  background: linear-gradient(rgba(0, 0, 0, 0.46) 0%, rgba(0, 0, 0, 0.46) 100%), url('/public/images/home.png');
+  background: linear-gradient(rgba(0, 0, 0, 0.46) 0%, rgba(0, 0, 0, 0.46) 100%), url('/images/home.png');
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
@@ -239,22 +239,23 @@ a.current--page::after {
   transition: all 0.2s;
 }
 
-.filter.simple:hover, .simple.selected {
+.filter.simple:hover,
+.simple.selected {
   background: #e17654;
   color: white;
 }
 
-.filter.luxury:hover, .luxury.selected {
+.filter.luxury:hover,
+.luxury.selected {
   background: #161616;
   color: white;
 }
 
-.filter.rugged:hover, .rugged.selected {
+.filter.rugged:hover,
+.rugged.selected {
   background: #115e59;
   color: white;
 }
-
-
 
 .Vans--filter {
   color: #4d4d4d;
@@ -627,7 +628,7 @@ a.current--page::after {
 .HostVans--van {
   text-decoration: none;
   color: black;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 .HostVans--van:hover {

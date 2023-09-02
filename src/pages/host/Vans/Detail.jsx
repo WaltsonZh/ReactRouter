@@ -2,11 +2,9 @@ import React from 'react'
 import { useOutletContext } from 'react-router-dom'
 
 export default function Detail() {
-  const { van, loading } = useOutletContext()
+  const van = useOutletContext()
 
-  return loading ? (
-    <h2>Loading...</h2>
-  ) : (
+  return (
     <div className='Details'>
       <p>
         Name: <span>{van.name}</span>

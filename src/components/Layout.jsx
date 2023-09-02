@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import NavBar from './NavBar'
 import Footer from './Footer'
 import { Outlet, useLoaderData } from 'react-router-dom'
@@ -9,33 +9,12 @@ export const loader = async () => {
 }
 
 export default function Layout() {
-  const data = useLoaderData()
-  const [vans, setVans] = useState()
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
-
-  console.log(data)
-
-  useEffect(() => {
-    const loadVans = async () => {
-      console.log('fetch')
-      setLoading(true)
-      try {
-        const data = await fetchVans()
-        setVans(data)
-      } catch (err) {
-        setError(err.message)
-      } finally {
-        setLoading(false)
-      }
-    }
-    loadVans()
-  }, [])
+  const vans = useLoaderData()
 
   return (
     <>
       <NavBar />
-      <Outlet context={{ data: vans, loading, error }} />
+      <Outlet context={vans} />
       <Footer />
     </>
   )

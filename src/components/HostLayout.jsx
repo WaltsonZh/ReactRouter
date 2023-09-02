@@ -1,32 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import HostNavBar from './HostNavBar'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLoaderData } from 'react-router-dom'
 import { fetchHostVans } from '../API'
 
-export default function HostLayout() {
-  const [vans, setVans] = useState()
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
+export const loader = async () => {
+  return fetchHostVans()
+}
 
-  useEffect(() => {
-    const loadHostVans = async () => {
-      setLoading(true)
-      try {
-        const data = await fetchHostVans()
-        setVans(data)
-      } catch (err) {
-        setError(err.message)
-      } finally {
-        setLoading(false)
-      }
-    }
-    loadHostVans()
-  }, [])
+export default function HostLayout() {
+  const vans = useLoaderData()
 
   return (
     <>
       <HostNavBar />
-      <Outlet context={{data: vans, loading, error}} />
+      <Outlet context={vans} />
     </>
   )
 }
