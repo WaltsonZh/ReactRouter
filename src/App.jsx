@@ -12,7 +12,7 @@ import Detail from './pages/host/Vans/Detail'
 import Pricing from './pages/host/Vans/Pricing'
 import Photos from './pages/host/Vans/Photos'
 import NotFound from './pages/NotFound'
-import Login, { loader as loginLoader } from './pages/Login'
+import Login, { loader as loginLoader, action as loginAction } from './pages/Login'
 import './server'
 import Layout, { loader as vansLoader } from './components/Layout'
 import HostLayout, { loader as hostLoader } from './components/HostLayout'
@@ -28,7 +28,7 @@ export default function App() {
         <Route path='about' element={<About />} />
         <Route path='vans' element={<Vans />} />
         <Route path='vans/:id' element={<VansDetail />} />
-        <Route path='login' element={<Login />} loader={loginLoader} />
+        <Route path='login' element={<Login />} loader={loginLoader} action={loginAction} />
         <Route path='host' element={<HostLayout />} loader={hostLoader} errorElement={<HostError />}>
           <Route index element={<Dashboard />} />
           <Route path='income' element={<Income />} />

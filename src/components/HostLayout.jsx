@@ -4,7 +4,7 @@ import { Outlet, redirect, useLoaderData } from 'react-router-dom'
 import { fetchHostVans } from '../API'
 
 export const loader = async () => {
-  const isLoggedIn = false
+  const isLoggedIn = localStorage.getItem('loggedIn')
   if (!isLoggedIn) {
     throw redirect('/login?redirect=1')
   }
