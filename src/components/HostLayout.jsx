@@ -6,7 +6,7 @@ import { fetchHostVans } from '../API'
 export const loader = async () => {
   const isLoggedIn = false
   if (!isLoggedIn) {
-    throw redirect('/login')
+    throw redirect('/login?redirect=1')
   }
   return fetchHostVans()
 }
