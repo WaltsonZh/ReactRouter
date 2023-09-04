@@ -26,16 +26,30 @@ export default function Login() {
   const error = useActionData()
   const redirect = useLoaderData()
   const [loggedIn, setLoggedIn] = useState(false)
+  const [isHovered, setIsHovered] = useState(false)
 
   useEffect(() => {
     setLoggedIn(localStorage.getItem('loggedIn'))
   }, [])
 
+  const mouseEnter = () => {
+    setIsHovered(true)
+  }
+
+  const mouseLeave = () => {
+    setIsHovered(false)
+  }
+
   return loggedIn ? (
-    <i class='bx bx-log-out Login' style={{fontSize: '5em'}} onClick={() => {
-      localStorage.removeItem('loggedIn')
-      setLoggedIn(false)
-    }}></i>
+    <div
+      className='Login'
+      onClick={() => {
+        localStorage.removeItem('loggedIn')
+        setLoggedIn(false)
+      }}
+    >
+      {isHovered ? <h2 onMouseLeave={mouseLeave}>Log Out</h2> : <i className='bx bx-log-out' onMouseEnter={mouseEnter}></i>}
+    </div>
   ) : (
     <div className='Login'>
       <h1>Sign in to your account</h1>

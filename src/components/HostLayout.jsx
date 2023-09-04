@@ -1,25 +1,27 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import HostNavBar from './HostNavBar'
-import { Outlet, redirect, useLoaderData } from 'react-router-dom'
-import { fetchHostVans } from '../API'
+import { Await, Outlet, defer, redirect, useLoaderData } from 'react-router-dom'
+import { getHostVans } from '../API'
 
-export const loader = async ({ request }) => {
+export const loader = ({ request }) => {
   const isLoggedIn = localStorage.getItem('loggedIn')
   const pathname = new URL(request.url).pathname
 
   if (!isLoggedIn) {
     throw redirect(`/login?redirectTo=${pathname}`)
   }
-  return fetchHostVans()
+  return defer({ vans: getHostVans() })
 }
 
 export default function HostLayout() {
-  const vans = useLoaderData()
+  const vansPromise = useLoaderData()
 
   return (
     <>
       <HostNavBar />
-      <Outlet context={vans} />
+      <Suspense fallback={<h1>Loading...</h1>}>
+        <Await resolve={vansPromise.vans}>{(vans) => <Outlet context={vans} />}</Await>
+      </Suspense>
     </>
   )
 }

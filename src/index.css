@@ -802,3 +802,12 @@ a.current--page::after {
 .Login h3 {
   color: red;
 }
+
+.Login h2 {
+  font-size: 4em;
+  cursor: pointer;
+}
+
+.Login i {
+  font-size: 5em;
+}

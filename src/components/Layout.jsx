@@ -1,20 +1,22 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import NavBar from './NavBar'
 import Footer from './Footer'
-import { Outlet, useLoaderData } from 'react-router-dom'
-import { fetchVans } from '../API'
+import { Await, Outlet, defer, useLoaderData } from 'react-router-dom'
+import { getVans } from '../API'
 
 export const loader = async () => {
-  return fetchVans()
+  return defer({ vans: getVans() })
 }
 
 export default function Layout() {
-  const vans = useLoaderData()
+  const vansPromise = useLoaderData()
 
   return (
     <>
       <NavBar />
-      <Outlet context={vans} />
+      <Suspense fallback={<h1>Loading...</h1>}>
+        <Await resolve={vansPromise.vans}>{(vans) => <Outlet context={vans} />}</Await>
+      </Suspense>
       <Footer />
     </>
   )
