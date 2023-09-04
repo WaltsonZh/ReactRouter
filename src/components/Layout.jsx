@@ -4,7 +4,7 @@ import Footer from './Footer'
 import { Await, Outlet, defer, useLoaderData } from 'react-router-dom'
 import { getVans } from '../API'
 
-export const loader = async () => {
+export const loader = () => {
   return defer({ vans: getVans() })
 }
 

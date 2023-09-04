@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app'
-import { collection, getDoc, getDocs, getFirestore, query, where } from 'firebase/firestore/lite'
+import { collection,  getDocs, getFirestore, query, where } from 'firebase/firestore/lite'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyD3DG18Zvlgb9MblA9ARV3_-gVF9nHj7I4',
@@ -35,7 +35,7 @@ export const getHostVans = async () => {
   return hostVans
 }
 
-export async function loginUser(creds) {
+export const loginUser = async (creds) => {
   const { email, password } = creds
   const q = query(collection(db, 'users'), where('email', '==', email), where('password', '==', password))
   const userSnapshot = await getDocs(q)
