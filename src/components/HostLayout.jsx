@@ -3,10 +3,12 @@ import HostNavBar from './HostNavBar'
 import { Outlet, redirect, useLoaderData } from 'react-router-dom'
 import { fetchHostVans } from '../API'
 
-export const loader = async () => {
+export const loader = async ({ request }) => {
   const isLoggedIn = localStorage.getItem('loggedIn')
+  const pathname = new URL(request.url).pathname
+
   if (!isLoggedIn) {
-    throw redirect('/login?redirect=1')
+    throw redirect(`/login?redirectTo=${pathname}`)
   }
   return fetchHostVans()
 }
